@@ -61,14 +61,13 @@ public class Bot extends TelegramLongPollingBot {
     private String getCurrentCourse() {
         try {
             return Course.getCourse();
-        }catch (IOException e) {
+        } catch (IOException e) {
             return "Error";
         }
     }
 
     public void onUpdateReceived(Update update) {
         Message message = update.getMessage();
-
         if (message != null && message.hasText()) {
             switch (message.getText()) {
                 case "/start":
